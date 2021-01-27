@@ -91,12 +91,16 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
-            if (row.containsValue(value)) {
-                jobs.add(row);
+            for (String i: row.keySet()){
+                String rValue = row.get(i).toLowerCase();
+                if (rValue.equals(value)) {
+                    jobs.add(row);
+                }
             }
+//            if (row.containsValue(value)) {
+//                jobs.add(row);
+//            }
         }
-
         return jobs;
     }
 
